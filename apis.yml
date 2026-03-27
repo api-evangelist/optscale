@@ -1,0 +1,42 @@
+aid: optscale
+name: OptScale
+description: >-
+  OptScale is an open-source FinOps and cloud cost optimization platform by
+  Hystax supporting AWS, Azure, GCP, Alibaba Cloud, and Kubernetes.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - FinOps
+  - Open Source
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/optscale/refs/heads/main/apis.yml
+created: '2026-03-27'
+modified: '2026-03-27'
+specificationVersion: '0.19'
+apis:
+  - aid: optscale:optscale
+    name: OptScale
+    description: >-
+      OptScale is an open-source FinOps and cloud cost optimization platform
+      supporting AWS, Azure, GCP, Alibaba Cloud, and Kubernetes.
+    humanURL: https://hystax.com/optscale/
+    tags:
+      - FinOps
+      - Open Source
+    properties:
+      - type: Documentation
+        url: https://hystax.com/documentation/optscale/
+      - type: Getting Started
+        url: https://hystax.com/documentation/optscale/
+      - type: GitHub Repository
+        url: https://github.com/hystax/optscale
+common:
+  - type: Website
+    url: https://hystax.com/optscale/
+  - type: Documentation
+    url: https://hystax.com/documentation/optscale/
+  - type: GitHub Organization
+    url: https://github.com/hystax
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
