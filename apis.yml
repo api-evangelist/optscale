@@ -49,6 +49,53 @@ common:
     url: https://github.com/hystax
   - type: GitHub Repository
     url: https://github.com/hystax/optscale
+  - type: Integrations
+    url: https://hystax.com/partners/
+integrations:
+  - name: Hystax
+  - name: OptScale FinOps
+  - name: MLOps
+  - name: cloud migration
+  - name: disaster recovery
+  - name: Rasis Idris, Managing Director at RIXS
+  - name: Adrian Ma, COO
+  - name: sap-netweaver-logo
+  - name: SAP-HANA-logo
+  - name: oracle-logo
+  - name: Oracle-WebLogic-logo
+  - name: vmware-vsphere-logo
+  - name: Microsoft IIS-logo
+  - name: microsoft-active-directory-logo
+  - name: microsoft-exchange-server-logo
+  - name: microsoft-sql-server
+  - name: Apache Spark
+  - name: PostgreSQL-logo
+  - name: MySQL-Logo
+  - name: JBoss
+  - name: apache-tomcat-logo
+  - name: mongodb-logo
+  - name: Hadoop_logo
+  - name: asf_logo
+  - name: IBM Websphere
+  - name: NGINX-logo
+  - name: hbase-logo
+  - name: CouchDB-logo
+  - name: RedHat
+  - name: redis
+  - name: ubuntu-logo
+  - name: centos-logo
+  - name: airowire
+  - name: Cassandra-logo
+  - name: Xen-hypervisor-logo
+  - name: KVM-logo
+  - name: Stevie award
+  - name: OpenInfra Foundation Member
+  - name: Hystax joins the Linux Foundation
+  - name: linkedin media
+  - name: twitter
+  - name: facebook
+  - name: medium
+  - name: youtube
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
