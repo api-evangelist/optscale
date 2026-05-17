@@ -34,9 +34,9 @@ apis:
     properties:
       - type: Documentation
         url: https://hystax.com/documentation/optscale/
-      - type: Getting Started
+      - type: GettingStarted
         url: https://hystax.com/documentation/optscale/
-      - type: GitHub Repository
+      - type: GitHubRepository
         url: https://github.com/hystax/optscale
       - type: OpenAPI
         url: openapi/optscale-openapi.yml
@@ -45,9 +45,9 @@ common:
     url: https://hystax.com/optscale/
   - type: Documentation
     url: https://hystax.com/documentation/optscale/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/hystax
-  - type: GitHub Repository
+  - type: GitHubRepository
     url: https://github.com/hystax/optscale
   - type: Integrations
     url: https://hystax.com/partners/
