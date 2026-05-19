@@ -1,0 +1,80 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: OptScale REST API — Authentication
+  description: 'OptScale REST API — Authentication. 1 operations. Lead operation: Create an authentication token. Self-contained
+    Naftiko capability covering one Optscale business surface.'
+  tags:
+  - Optscale
+  - Authentication
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    OPTSCALE_API_KEY: OPTSCALE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: optscale-authentication
+    baseUri: https://{host}/restapi/v2
+    description: OptScale REST API — Authentication business capability. Self-contained, no shared references.
+    resources:
+    - name: auth-v2-tokens
+      path: /auth/v2/tokens
+      operations:
+      - name: createtoken
+        method: POST
+        description: Create an authentication token
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: bearer
+      token: '{{env.OPTSCALE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: optscale-authentication-rest
+    port: 8080
+    description: REST adapter for OptScale REST API — Authentication. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/auth/v2/tokens
+      name: auth-v2-tokens
+      description: REST surface for auth-v2-tokens.
+      operations:
+      - method: POST
+        name: createtoken
+        description: Create an authentication token
+        call: optscale-authentication.createtoken
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: optscale-authentication-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for OptScale REST API — Authentication. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: create-authentication-token
+      description: Create an authentication token
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: optscale-authentication.createtoken
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

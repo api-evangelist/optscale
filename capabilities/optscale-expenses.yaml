@@ -1,0 +1,83 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: OptScale REST API — Expenses
+  description: 'OptScale REST API — Expenses. 1 operations. Lead operation: Query expenses. Self-contained Naftiko capability
+    covering one Optscale business surface.'
+  tags:
+  - Optscale
+  - Expenses
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    OPTSCALE_API_KEY: OPTSCALE_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: optscale-expenses
+    baseUri: https://{host}/restapi/v2
+    description: OptScale REST API — Expenses business capability. Self-contained, no shared references.
+    resources:
+    - name: organizations-organization_id-expenses
+      path: /organizations/{organization_id}/expenses
+      operations:
+      - name: getexpenses
+        method: GET
+        description: Query expenses
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: start_date
+          in: query
+          type: integer
+        - name: end_date
+          in: query
+          type: integer
+    authentication:
+      type: bearer
+      token: '{{env.OPTSCALE_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: optscale-expenses-rest
+    port: 8080
+    description: REST adapter for OptScale REST API — Expenses. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/organizations/{organization-id}/expenses
+      name: organizations-organization-id-expenses
+      description: REST surface for organizations-organization_id-expenses.
+      operations:
+      - method: GET
+        name: getexpenses
+        description: Query expenses
+        call: optscale-expenses.getexpenses
+        with:
+          start_date: rest.start_date
+          end_date: rest.end_date
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: optscale-expenses-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for OptScale REST API — Expenses. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: query-expenses
+      description: Query expenses
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: optscale-expenses.getexpenses
+      with:
+        start_date: tools.start_date
+        end_date: tools.end_date
+      outputParameters:
+      - type: object
+        mapping: $.
