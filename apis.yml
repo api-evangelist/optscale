@@ -65,6 +65,8 @@ common:
   url: https://github.com/hystax/optscale
 - type: Integrations
   url: https://hystax.com/partners/
+- type: LLMsTxt
+  url: https://my.optscale.com/llms.txt
 integrations:
 - name: Hystax
 - name: OptScale FinOps
