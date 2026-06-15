@@ -1,0 +1,373 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OptScale REST API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create an authentication token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}/restapi/v2/auth/v2/tokens",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an authentication token"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Organizations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List organizations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/restapi/v2/organizations"
+          },
+          "docs": "List organizations"
+        },
+        {
+          "info": {
+            "name": "Create an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}/restapi/v2/organizations",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an organization"
+        },
+        {
+          "info": {
+            "name": "Get an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/restapi/v2/organizations/:organization_id",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get an organization"
+        },
+        {
+          "info": {
+            "name": "Delete an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}/restapi/v2/organizations/:organization_id",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete an organization"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Cloud Accounts",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List cloud accounts for an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/restapi/v2/organizations/:organization_id/cloud_accounts",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List cloud accounts for an organization"
+        },
+        {
+          "info": {
+            "name": "Create a cloud account connection",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}/restapi/v2/organizations/:organization_id/cloud_accounts",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a cloud account connection"
+        },
+        {
+          "info": {
+            "name": "Get cloud account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/restapi/v2/cloud_accounts/:cloud_account_id",
+            "params": [
+              {
+                "name": "cloud_account_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get cloud account"
+        },
+        {
+          "info": {
+            "name": "Disconnect a cloud account",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{host}/restapi/v2/cloud_accounts/:cloud_account_id",
+            "params": [
+              {
+                "name": "cloud_account_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Disconnect a cloud account"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Employees",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List organization employees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/restapi/v2/organizations/:organization_id/employees",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List organization employees"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Pools",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List pools",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/restapi/v2/organizations/:organization_id/pools",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List pools"
+        },
+        {
+          "info": {
+            "name": "Create a pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}/restapi/v2/organizations/:organization_id/pools",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a pool"
+        },
+        {
+          "info": {
+            "name": "Get pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/restapi/v2/pools/:pool_id",
+            "params": [
+              {
+                "name": "pool_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get pool"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Resources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List cloud resources for a cloud account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/restapi/v2/cloud_accounts/:cloud_account_id/cloud_resources",
+            "params": [
+              {
+                "name": "cloud_account_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List cloud resources for a cloud account"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Expenses",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query expenses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/restapi/v2/organizations/:organization_id/expenses",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "start_date",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "end_date",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Query expenses"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Recommendations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List optimization recommendations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/restapi/v2/organizations/:organization_id/optimizations",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List optimization recommendations"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
