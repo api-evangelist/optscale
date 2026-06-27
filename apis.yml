@@ -49,7 +49,7 @@ common:
     url: https://github.com/hystax/optscale
   - type: Integrations
     url: https://hystax.com/partners/
-  - type: LLMsTxt
+  - type: LlmsText
     url: https://my.optscale.com/llms.txt
 integrations:
   - name: Hystax
