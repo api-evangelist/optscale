@@ -39,6 +39,10 @@ apis:
       - type: OpenAPI
         url: openapi/optscale-openapi.yml
 common:
+  - type: DomainSecurity
+    url: security/optscale-domain-security.yml
+  - type: Authentication
+    url: authentication/optscale-authentication.yml
   - type: Website
     url: https://hystax.com/optscale/
   - type: Documentation
@@ -51,6 +55,8 @@ common:
     url: https://hystax.com/partners/
   - type: LlmsText
     url: https://my.optscale.com/llms.txt
+  - url: https://hystax.com/feed/
+    type: Blog
 integrations:
   - name: Hystax
   - name: OptScale FinOps
