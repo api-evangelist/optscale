@@ -39,6 +39,8 @@ apis:
       - type: OpenAPI
         url: openapi/optscale-openapi.yml
 common:
+  - type: AgenticAccess
+    url: agentic-access/optscale-agentic-access.yml
   - type: DomainSecurity
     url: security/optscale-domain-security.yml
   - type: Authentication
