@@ -1,0 +1,112 @@
+openapi: 3.1.0
+info:
+  title: OptScale REST Authentication Pools API
+  description: OptScale is an open-source FinOps and cloud cost optimization platform by Hystax. The REST API exposes endpoints for managing organizations, cloud accounts, employees, pools, resources, expenses, recommendations, and optimization runs across AWS, Azure, GCP, Alibaba Cloud, and Kubernetes.
+  version: '2.0'
+  contact:
+    name: Hystax OptScale
+    url: https://hystax.com/optscale/
+    email: info@hystax.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://{host}/restapi/v2
+  description: OptScale REST API server
+  variables:
+    host:
+      default: my.optscale.com
+      description: OptScale hostname
+security:
+- bearerAuth: []
+tags:
+- name: Pools
+  description: Budget pools and limits
+paths:
+  /organizations/{organization_id}/pools:
+    get:
+      tags:
+      - Pools
+      summary: List pools
+      operationId: listPools
+      parameters:
+      - $ref: '#/components/parameters/OrganizationId'
+      responses:
+        '200':
+          description: Pool list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Pool'
+    post:
+      tags:
+      - Pools
+      summary: Create a pool
+      operationId: createPool
+      parameters:
+      - $ref: '#/components/parameters/OrganizationId'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Pool'
+      responses:
+        '201':
+          description: Pool created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pool'
+  /pools/{pool_id}:
+    get:
+      tags:
+      - Pools
+      summary: Get pool
+      operationId: getPool
+      parameters:
+      - name: pool_id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Pool
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Pool'
+components:
+  schemas:
+    Pool:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        parent_id:
+          type: string
+          nullable: true
+        limit:
+          type: number
+        organization_id:
+          type: string
+  parameters:
+    OrganizationId:
+      name: organization_id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+externalDocs:
+  description: OptScale Documentation
+  url: https://hystax.com/documentation/optscale/

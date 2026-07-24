@@ -1,0 +1,73 @@
+openapi: 3.1.0
+info:
+  title: OptScale REST Authentication Optimizations API
+  description: OptScale is an open-source FinOps and cloud cost optimization platform by Hystax. The REST API exposes endpoints for managing organizations, cloud accounts, employees, pools, resources, expenses, recommendations, and optimization runs across AWS, Azure, GCP, Alibaba Cloud, and Kubernetes.
+  version: '2.0'
+  contact:
+    name: Hystax OptScale
+    url: https://hystax.com/optscale/
+    email: info@hystax.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://{host}/restapi/v2
+  description: OptScale REST API server
+  variables:
+    host:
+      default: my.optscale.com
+      description: OptScale hostname
+security:
+- bearerAuth: []
+tags:
+- name: Optimizations
+  description: Optimization checklist runs and results
+paths:
+  /organizations/{organization_id}/optimizations:
+    get:
+      tags:
+      - Optimizations
+      summary: List optimization recommendations
+      operationId: listOptimizations
+      parameters:
+      - $ref: '#/components/parameters/OrganizationId'
+      responses:
+        '200':
+          description: Optimization recommendations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Optimization'
+components:
+  schemas:
+    Optimization:
+      type: object
+      properties:
+        module:
+          type: string
+        count:
+          type: integer
+        saving:
+          type: number
+        items:
+          type: array
+          items:
+            type: object
+            additionalProperties: true
+  parameters:
+    OrganizationId:
+      name: organization_id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+externalDocs:
+  description: OptScale Documentation
+  url: https://hystax.com/documentation/optscale/

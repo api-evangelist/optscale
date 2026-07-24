@@ -1,0 +1,113 @@
+openapi: 3.1.0
+info:
+  title: OptScale REST Authentication Organizations API
+  description: OptScale is an open-source FinOps and cloud cost optimization platform by Hystax. The REST API exposes endpoints for managing organizations, cloud accounts, employees, pools, resources, expenses, recommendations, and optimization runs across AWS, Azure, GCP, Alibaba Cloud, and Kubernetes.
+  version: '2.0'
+  contact:
+    name: Hystax OptScale
+    url: https://hystax.com/optscale/
+    email: info@hystax.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://{host}/restapi/v2
+  description: OptScale REST API server
+  variables:
+    host:
+      default: my.optscale.com
+      description: OptScale hostname
+security:
+- bearerAuth: []
+tags:
+- name: Organizations
+  description: Organization management
+paths:
+  /organizations:
+    get:
+      tags:
+      - Organizations
+      summary: List organizations
+      operationId: listOrganizations
+      responses:
+        '200':
+          description: A list of organizations
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Organization'
+    post:
+      tags:
+      - Organizations
+      summary: Create an organization
+      operationId: createOrganization
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Organization'
+      responses:
+        '201':
+          description: Organization created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+  /organizations/{organization_id}:
+    get:
+      tags:
+      - Organizations
+      summary: Get an organization
+      operationId: getOrganization
+      parameters:
+      - $ref: '#/components/parameters/OrganizationId'
+      responses:
+        '200':
+          description: The organization
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Organization'
+    delete:
+      tags:
+      - Organizations
+      summary: Delete an organization
+      operationId: deleteOrganization
+      parameters:
+      - $ref: '#/components/parameters/OrganizationId'
+      responses:
+        '204':
+          description: Organization deleted
+components:
+  schemas:
+    Organization:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        pool_id:
+          type: string
+        currency:
+          type: string
+        created_at:
+          type: integer
+  parameters:
+    OrganizationId:
+      name: organization_id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+externalDocs:
+  description: OptScale Documentation
+  url: https://hystax.com/documentation/optscale/

@@ -1,0 +1,70 @@
+openapi: 3.1.0
+info:
+  title: OptScale REST Authentication Employees API
+  description: OptScale is an open-source FinOps and cloud cost optimization platform by Hystax. The REST API exposes endpoints for managing organizations, cloud accounts, employees, pools, resources, expenses, recommendations, and optimization runs across AWS, Azure, GCP, Alibaba Cloud, and Kubernetes.
+  version: '2.0'
+  contact:
+    name: Hystax OptScale
+    url: https://hystax.com/optscale/
+    email: info@hystax.com
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://{host}/restapi/v2
+  description: OptScale REST API server
+  variables:
+    host:
+      default: my.optscale.com
+      description: OptScale hostname
+security:
+- bearerAuth: []
+tags:
+- name: Employees
+  description: Organization employees and roles
+paths:
+  /organizations/{organization_id}/employees:
+    get:
+      tags:
+      - Employees
+      summary: List organization employees
+      operationId: listEmployees
+      parameters:
+      - $ref: '#/components/parameters/OrganizationId'
+      responses:
+        '200':
+          description: Employees list
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Employee'
+components:
+  schemas:
+    Employee:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        auth_user_id:
+          type: string
+        organization_id:
+          type: string
+  parameters:
+    OrganizationId:
+      name: organization_id
+      in: path
+      required: true
+      schema:
+        type: string
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+externalDocs:
+  description: OptScale Documentation
+  url: https://hystax.com/documentation/optscale/
