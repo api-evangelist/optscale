@@ -1,0 +1,30 @@
+{
+  "provider": "optscale",
+  "sources": [
+    "optscale-authentication-api-openapi.yml",
+    "optscale-cloud-accounts-api-openapi.yml",
+    "optscale-employees-api-openapi.yml",
+    "optscale-expenses-api-openapi.yml",
+    "optscale-optimizations-api-openapi.yml",
+    "optscale-organizations-api-openapi.yml",
+    "optscale-pools-api-openapi.yml",
+    "optscale-recommendations-api-openapi.yml",
+    "optscale-resources-api-openapi.yml"
+  ],
+  "outputs": [
+    "optscale-authentication-api-openapi.yml",
+    "optscale-cloud-accounts-api-openapi.yml",
+    "optscale-employees-api-openapi.yml",
+    "optscale-expenses-api-openapi.yml",
+    "optscale-optimizations-api-openapi.yml",
+    "optscale-organizations-api-openapi.yml",
+    "optscale-pools-api-openapi.yml",
+    "optscale-recommendations-api-openapi.yml",
+    "optscale-resources-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
