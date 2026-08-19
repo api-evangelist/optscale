@@ -1,0 +1,157 @@
+{
+  "item": [
+    {
+      "id": "3b537864-d191-4254-a4f2-959784920944",
+      "name": "Optimizations",
+      "description": {
+        "content": "Optimization checklist runs and results",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "1d1464c1-5cd4-4437-a0d6-b12243cc2675",
+          "name": "List optimization recommendations",
+          "request": {
+            "name": "List optimization recommendations",
+            "description": {},
+            "url": {
+              "path": [
+                "organizations",
+                ":organization_id",
+                "optimizations"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "organization_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "OptScale hostname",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f93ca65a-5cd0-4e7d-9dd1-9ee14570bdaa",
+              "name": "Optimization recommendations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "organizations",
+                    ":organization_id",
+                    "optimizations"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "organization_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "OptScale hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"module\": \"string\",\n    \"count\": 6579,\n    \"saving\": 8254.448043324106,\n    \"items\": [\n      {\n        \"key_0\": 3505.285453947964,\n        \"key_1\": true\n      },\n      {\n        \"key_0\": false\n      }\n    ]\n  },\n  {\n    \"module\": \"string\",\n    \"count\": 6777,\n    \"saving\": 768.8238391505275,\n    \"items\": [\n      {\n        \"key_0\": \"string\"\n      },\n      {\n        \"key_0\": 8038.619709230351\n      }\n    ]\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "OptScale hostname",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "my.optscale.com",
+      "key": "host"
+    },
+    {
+      "type": "string",
+      "value": "https://{{host}}/restapi/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7bf21b43-3742-4c74-bbd9-c7e8bc165f77",
+    "name": "OptScale REST Authentication Optimizations API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "OptScale is an open-source FinOps and cloud cost optimization platform by Hystax. The REST API exposes endpoints for managing organizations, cloud accounts, employees, pools, resources, expenses, recommendations, and optimization runs across AWS, Azure, GCP, Alibaba Cloud, and Kubernetes.\n\nContact Support:\n Name: Hystax OptScale\n Email: info@hystax.com",
+      "type": "text/plain"
+    }
+  }
+}

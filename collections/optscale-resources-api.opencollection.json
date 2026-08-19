@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OptScale REST Authentication Resources API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Resources",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List cloud resources for a cloud account",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/restapi/v2/cloud_accounts/:cloud_account_id/cloud_resources",
+            "params": [
+              {
+                "name": "cloud_account_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List cloud resources for a cloud account"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,157 @@
+{
+  "item": [
+    {
+      "id": "3dbbb2cd-17ef-472c-b7ea-b1e24e367434",
+      "name": "Resources",
+      "description": {
+        "content": "Cloud resources and assignment rules",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "29983deb-dea7-4023-b361-3cab9fac4f6f",
+          "name": "List cloud resources for a cloud account",
+          "request": {
+            "name": "List cloud resources for a cloud account",
+            "description": {},
+            "url": {
+              "path": [
+                "cloud_accounts",
+                ":cloud_account_id",
+                "cloud_resources"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "cloud_account_id",
+                  "description": "(Required) "
+                },
+                {
+                  "description": "OptScale hostname",
+                  "type": "any",
+                  "value": "{{host}}",
+                  "key": "host"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "8dffbdb9-1166-4313-98f2-d4a4ce1ceaec",
+              "name": "Resources list",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "cloud_accounts",
+                    ":cloud_account_id",
+                    "cloud_resources"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "cloud_account_id",
+                      "description": "(Required) "
+                    },
+                    {
+                      "description": "OptScale hostname",
+                      "type": "any",
+                      "value": "{{host}}",
+                      "key": "host"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"id\": \"string\",\n    \"cloud_resource_id\": \"string\",\n    \"resource_type\": \"string\",\n    \"region\": \"string\",\n    \"cloud_account_id\": \"string\",\n    \"active\": false,\n    \"first_seen\": 1565,\n    \"last_seen\": 9391\n  },\n  {\n    \"id\": \"string\",\n    \"cloud_resource_id\": \"string\",\n    \"resource_type\": \"string\",\n    \"region\": \"string\",\n    \"cloud_account_id\": \"string\",\n    \"active\": false,\n    \"first_seen\": 4519,\n    \"last_seen\": 601\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "OptScale hostname",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "my.optscale.com",
+      "key": "host"
+    },
+    {
+      "type": "string",
+      "value": "https://{{host}}/restapi/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9835f196-b1d3-4f6f-a88f-a7a306d8d0c6",
+    "name": "OptScale REST Authentication Resources API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "OptScale is an open-source FinOps and cloud cost optimization platform by Hystax. The REST API exposes endpoints for managing organizations, cloud accounts, employees, pools, resources, expenses, recommendations, and optimization runs across AWS, Azure, GCP, Alibaba Cloud, and Kubernetes.\n\nContact Support:\n Name: Hystax OptScale\n Email: info@hystax.com",
+      "type": "text/plain"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OptScale REST Authentication Employees API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Employees",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List organization employees",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/restapi/v2/organizations/:organization_id/employees",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List organization employees"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,82 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "OptScale REST Authentication Pools API",
+    "version": "2.0"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pools",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List pools",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/restapi/v2/organizations/:organization_id/pools",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "List pools"
+        },
+        {
+          "info": {
+            "name": "Create a pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{host}/restapi/v2/organizations/:organization_id/pools",
+            "params": [
+              {
+                "name": "organization_id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a pool"
+        },
+        {
+          "info": {
+            "name": "Get pool",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{host}/restapi/v2/pools/:pool_id",
+            "params": [
+              {
+                "name": "pool_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get pool"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
