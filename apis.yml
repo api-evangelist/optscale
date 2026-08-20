@@ -23,6 +23,12 @@ tags:
   - Cost Optimization
   - Cloud
   - Kubernetes
+  - Open-Source
+tags_raw:
+  - FinOps
+  - Cost Optimization
+  - Cloud
+  - Kubernetes
   - Open Source
 url: https://raw.githubusercontent.com/api-evangelist/optscale/refs/heads/main/apis.yml
 created: '2026-03-27'
@@ -115,6 +121,8 @@ apis:
   humanURL: https://hystax.com/optscale/
   baseURL: https://my.optscale.com/restapi/v2
   tags:
+  - Organization
+  tags_raw:
   - Organizations
   properties:
   - type: OpenAPI
