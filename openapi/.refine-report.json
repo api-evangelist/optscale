@@ -1,15 +1,7 @@
 {
   "provider": "optscale",
   "sources": [
-    "optscale-authentication-api-openapi.yml",
-    "optscale-cloud-accounts-api-openapi.yml",
-    "optscale-employees-api-openapi.yml",
-    "optscale-expenses-api-openapi.yml",
-    "optscale-optimizations-api-openapi.yml",
-    "optscale-organizations-api-openapi.yml",
-    "optscale-pools-api-openapi.yml",
-    "optscale-recommendations-api-openapi.yml",
-    "optscale-resources-api-openapi.yml"
+    "_original/optscale-openapi.yml"
   ],
   "outputs": [
     "optscale-authentication-api-openapi.yml",
@@ -25,6 +17,20 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "optscale-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "optscale-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "optscale-cloud-accounts-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "optscale-employees-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "optscale-expenses-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "optscale-optimizations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "optscale-organizations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "optscale-pools-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "optscale-recommendations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "optscale-resources-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
