@@ -82,13 +82,6 @@ paths:
         '204':
           description: Organization deleted
 components:
-  parameters:
-    OrganizationId:
-      name: organization_id
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
     Organization:
       type: object
@@ -103,6 +96,13 @@ components:
           type: string
         created_at:
           type: integer
+  parameters:
+    OrganizationId:
+      name: organization_id
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

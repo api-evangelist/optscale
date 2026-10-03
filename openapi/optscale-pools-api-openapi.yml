@@ -80,13 +80,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/Pool'
 components:
-  parameters:
-    OrganizationId:
-      name: organization_id
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
     Pool:
       type: object
@@ -102,6 +95,13 @@ components:
           type: number
         organization_id:
           type: string
+  parameters:
+    OrganizationId:
+      name: organization_id
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

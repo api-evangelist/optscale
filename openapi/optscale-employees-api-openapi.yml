@@ -41,13 +41,6 @@ paths:
                 items:
                   $ref: '#/components/schemas/Employee'
 components:
-  parameters:
-    OrganizationId:
-      name: organization_id
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
     Employee:
       type: object
@@ -60,6 +53,13 @@ components:
           type: string
         organization_id:
           type: string
+  parameters:
+    OrganizationId:
+      name: organization_id
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

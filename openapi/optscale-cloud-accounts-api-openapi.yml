@@ -87,14 +87,14 @@ paths:
           description: Cloud account disconnected
 components:
   parameters:
-    OrganizationId:
-      name: organization_id
+    CloudAccountId:
+      name: cloud_account_id
       in: path
       required: true
       schema:
         type: string
-    CloudAccountId:
-      name: cloud_account_id
+    OrganizationId:
+      name: organization_id
       in: path
       required: true
       schema:
