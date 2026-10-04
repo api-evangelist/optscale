@@ -48,6 +48,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/ExpensesSummary'
 components:
+  parameters:
+    OrganizationId:
+      name: organization_id
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
     ExpensesSummary:
       type: object
@@ -60,13 +67,6 @@ components:
           type: object
           additionalProperties:
             type: number
-  parameters:
-    OrganizationId:
-      name: organization_id
-      in: path
-      required: true
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http

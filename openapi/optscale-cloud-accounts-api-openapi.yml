@@ -86,19 +86,6 @@ paths:
         '204':
           description: Cloud account disconnected
 components:
-  parameters:
-    CloudAccountId:
-      name: cloud_account_id
-      in: path
-      required: true
-      schema:
-        type: string
-    OrganizationId:
-      name: organization_id
-      in: path
-      required: true
-      schema:
-        type: string
   schemas:
     CloudAccount:
       type: object
@@ -122,6 +109,19 @@ components:
           type: string
         last_import_at:
           type: integer
+  parameters:
+    CloudAccountId:
+      name: cloud_account_id
+      in: path
+      required: true
+      schema:
+        type: string
+    OrganizationId:
+      name: organization_id
+      in: path
+      required: true
+      schema:
+        type: string
   securitySchemes:
     bearerAuth:
       type: http

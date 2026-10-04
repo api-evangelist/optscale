@@ -41,6 +41,13 @@ paths:
                 items:
                   $ref: '#/components/schemas/CloudResource'
 components:
+  parameters:
+    CloudAccountId:
+      name: cloud_account_id
+      in: path
+      required: true
+      schema:
+        type: string
   schemas:
     CloudResource:
       type: object
@@ -61,13 +68,6 @@ components:
           type: integer
         last_seen:
           type: integer
-  parameters:
-    CloudAccountId:
-      name: cloud_account_id
-      in: path
-      required: true
-      schema:
-        type: string
   securitySchemes:
     bearerAuth:
       type: http
