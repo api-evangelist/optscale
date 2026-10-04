@@ -197,6 +197,9 @@ apis:
   - type: GitHubRepository
     url: https://github.com/hystax/optscale
 common:
+  - type: CapabilityMap
+    url: capabilities/optscale-capability-edges.yml
+    name: OptScale Business Capability Map
   - type: IssueTracker
     url: https://github.com/hystax/optscale/issues
   - type: Releases

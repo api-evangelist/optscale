@@ -1,0 +1,45 @@
+slug: optscale
+provider: OptScale
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 3
+edges:
+- tag: Expenses
+  spec_file: optscale-expenses-api-openapi.yml
+  capability_id: BC-600.80
+  capability_id_l1: BC-600
+  capability_name: IT Financial Management
+  confidence: 0.8
+  evidence: GET /organizations/{organization_id}/expenses getExpenses 'Query expenses'; schema ExpensesSummary,
+    on a 'FinOps and cloud cost optimization platform'
+  reason: Expenses here are cloud spend aggregated per organization/cloud account — IT spend visibility,
+    chargeback/showback and cost optimisation, i.e. IT Financial Management rather than general ledger
+    or AP accounting.
+- tag: Optimizations
+  spec_file: optscale-optimizations-api-openapi.yml
+  capability_id: BC-600.80
+  capability_id_l1: BC-600
+  capability_name: IT Financial Management
+  confidence: 0.8
+  evidence: GET /organizations/{organization_id}/optimizations listOptimizations 'List optimization recommendations'
+  reason: Returns cloud cost-saving recommendations from a FinOps platform, which is squarely IT cost
+    optimisation within IT Financial Management.
+- tag: Recommendations
+  spec_file: optscale-recommendations-api-openapi.yml
+  capability_id: BC-600.80
+  capability_id_l1: BC-600
+  capability_name: IT Financial Management
+  confidence: 0.78
+  evidence: GET /organizations/{organization_id}/optimizations — "List optimization recommendations";
+    vendor is an "open-source FinOps and cloud cost optimization platform"
+  reason: The single operation returns cloud cost-optimization recommendations, which is IT spend / cost-optimization
+    work (IT Financial Management) rather than any generic 'recommendation engine'.
